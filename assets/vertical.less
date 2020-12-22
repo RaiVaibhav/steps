@@ -27,14 +27,14 @@
     }
     &-tail {
       position: absolute;
-      left: 13px;
+      left: calc(calc(@item-icon-height - @item-tail-height)/2);
       top: 0;
       height: 100%;
-      width: 1px;
+      width: @item-tail-height;
       padding: 30px 0 4px 0;
       &:after {
         height: 100%;
-        width: 1px;
+        width: @item-tail-height;
       }
     }
   }

@@ -29,6 +29,8 @@ export interface StepProps {
   onStepClick?: (index: number) => void;
   progressDot?: ProgressDotRender | boolean;
   stepIcon?: StepIconRender;
+  wrapCustomIcon?: boolean;
+  showStepNumber?: boolean;
 }
 
 export default class Step extends React.Component<StepProps> {
@@ -53,6 +55,7 @@ export default class Step extends React.Component<StepProps> {
       icon,
       iconPrefix,
       icons,
+      showStepNumber,
     } = this.props;
     let iconNode;
     const iconClassName = classNames(`${prefixCls}-icon`, `${iconPrefix}icon`, {
@@ -88,7 +91,7 @@ export default class Step extends React.Component<StepProps> {
     } else if (icon || status === 'finish' || status === 'error') {
       iconNode = <span className={iconClassName} />;
     } else {
-      iconNode = <span className={`${prefixCls}-icon`}>{stepNumber}</span>;
+      iconNode = <span className={`${prefixCls}-icon`}>{showStepNumber ? stepNumber : null}</span>;
     }
 
     if (stepIcon) {
@@ -123,14 +126,16 @@ export default class Step extends React.Component<StepProps> {
       stepIcon,
       tailContent,
       icons,
+      wrapCustomIcon,
       stepIndex,
       onStepClick,
       onClick,
+      showStepNumber,
       ...restProps
     } = this.props;
 
     const classString = classNames(`${prefixCls}-item`, `${prefixCls}-item-${status}`, className, {
-      [`${prefixCls}-item-custom`]: icon,
+      [`${prefixCls}-item-custom`]: icon && !wrapCustomIcon,
       [`${prefixCls}-item-active`]: active,
       [`${prefixCls}-item-disabled`]: disabled === true,
     });

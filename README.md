@@ -76,6 +76,12 @@ https://react-component.github.io/steps/
       <td>index of current step</td>
     </tr>
     <tr>
+      <td>showStepNumber</td>
+      <td>boolean</td>
+      <td></td>
+      <td>show the step no inside the step item</td>
+    </tr>
+    <tr>
       <td>initial</td>
       <td>number</td>
       <td>0</td>
@@ -149,6 +155,12 @@ https://react-component.github.io/steps/
       <td>ReactNode</td>
       <td></td>
       <td>set icon of step item</td>
+    </tr>
+    <tr>
+      <td>wrapCustomIcon</td>
+      <td>string</td>
+      <td></td>
+      <td>Wrap the custom icon inside the step item (Check custom icon example)</td>
     </tr>
     <tr>
       <td>status</td>

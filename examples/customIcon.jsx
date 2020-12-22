@@ -8,8 +8,8 @@ const Icon = ({ type }) => <i className={`rcicon rcicon-${type}`} />;
 
 export default () => (
   <Steps current={1}>
-    <Step title="步骤1" icon={<Icon type="cloud" />} />
-    <Step title="步骤2" icon="apple" />
+    <Step title="步骤1" icon={<Icon type="cloud" />} subTitle="Hello" />
+    <Step title="步骤2" icon={<Icon type="cloud" />} wrapCustomIcon />
     <Step title="步骤3" icon="github" />
   </Steps>
 );

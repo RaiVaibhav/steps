@@ -40,6 +40,7 @@ export interface StepsProps {
   initial?: number;
   icons?: Icons;
   onChange?: (current: number) => void;
+  showStepNumber?: boolean;
 }
 
 export default class Steps extends React.Component<StepsProps> {
@@ -83,6 +84,7 @@ export default class Steps extends React.Component<StepsProps> {
       initial,
       icons,
       onChange,
+      showStepNumber,
       ...restProps
     } = this.props;
     const isNav = type === 'navigation';
@@ -109,6 +111,7 @@ export default class Steps extends React.Component<StepsProps> {
             stepIcon,
             icons,
             onStepClick: onChange && this.onStepClick,
+            showStepNumber,
             ...child.props,
           };
           // fix tail color

@@ -48,12 +48,14 @@
   }
 
   &-icon {
+    position: relative;
+    z-index: 2;
+    height: @item-icon-height;
+    width: @item-icon-height;
+    line-height: @item-icon-height;
+    border-radius: @item-icon-height;
     border: 1px solid @wait-icon-color;
-    width: 26px;
-    height: 26px;
-    line-height: 26px;
     text-align: center;
-    border-radius: 26px;
     font-size: 14px;
     margin-right: 8px;
     transition: background-color .3s, border-color .3s;
@@ -76,13 +78,13 @@
     position: absolute;
     left: 0;
     width: 100%;
-    top: 12px;
+    top: calc(calc(@item-icon-height - @item-tail-height)/2);
     padding: 0 10px;
     &:after {
       content: '';
       display: inline-block;
       background: @wait-tail-color;
-      height: 1px;
+      height: @item-tail-height;
       border-radius: 1px;
       width: 100%;
       transition: background .3s;
@@ -125,7 +127,13 @@
   &-process &-icon {
     background: @process-icon-color;
     > .@{stepsPrefixClass}-icon {
-      color: #fff;
+      color: @process-title-color;
+    }
+  }
+  &-wait &-icon {
+    background: @process-icon-color;
+    > .@{stepsPrefixClass}-icon {
+      color: @wait-title-color;
     }
   }
   .step-item-status(finish);
@@ -158,9 +166,9 @@
   @tail-color: "@{status}-tail-color";
   &-@{status} &-icon {
     border-color: @@icon-color;
-    background-color: #fff;
+    background-color: @@icon-color;
     > .@{stepsPrefixClass}-icon {
-      color: @@icon-color;
+      color: white;
       .@{stepsPrefixClass}-icon-dot {
         background: @@icon-color;
       }
